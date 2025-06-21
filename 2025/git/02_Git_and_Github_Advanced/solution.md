@@ -141,3 +141,60 @@ Difference Between git stash pop and git stash apply
 | `git stash apply` | Reapplies the changes from the latest (or specified) stash but **keeps it in the list** |
 | `git stash pop`   | Reapplies the changes **and removes** the stash entry from the stash list               |
 
+
+
+
+###Task 5: Rebasing - Keeping a Clean Commit History
+
+Using Cherry-Picking for Bug Fixes
+What is Cherry-Picking?
+Cherry-picking in Git is the act of selecting specific commits from one branch and applying them to another. This is useful when you want to apply a fix or feature from a development or feature branch into a stable branch (like main or release) without merging the whole branch.
+
+📌 When to Use It for Bug Fixes
+Cherry-picking is often used to:
+
+Backport a bug fix from main to an older release branch
+
+Apply a fix from a feature branch to main before the whole feature is ready
+
+Isolate important hotfixes without pulling in unrelated work
+
+Example:
+Suppose a bug was fixed in a feature branch with commit fab5c2b. Instead of merging the entire branch, you can cherry-pick just the fix:
+
+
+⚠️ Risks of Cherry-Picking
+While cherry-picking can be convenient, it comes with several risks:
+
+1. Duplicate Commits / Merge Conflicts Later
+Cherry-picked commits are copied with a new SHA, so Git does not recognize them as the same. When the original branch is merged later, you may get:
+
+Merge conflicts
+
+Duplicated changes
+
+2. Loss of Context
+Cherry-picking isolates a commit from its original context. This can:
+
+Break dependencies between commits
+
+Lead to confusing histories
+
+Introduce bugs if the cherry-picked commit relies on other unseen changes
+
+3. History Complexity
+Frequent cherry-picking can clutter your Git history, making it hard to understand where fixes came from and how they relate to other work.
+
+4. Maintenance Overhead
+Teams must track what was cherry-picked where. Without proper tracking (e.g., commit messages or tags), it’s easy to lose track of what's been applied.
+
+✅ Best Practices
+Always test cherry-picked commits in their new context.
+
+Document cherry-picked commits in messages (e.g., cherry-picked from <commit-sha>).
+
+Avoid cherry-picking large, dependent commits.
+
+Consider alternatives like git merge -s ours or patch-based workflows if you need more control.
+
+
