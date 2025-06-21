@@ -144,7 +144,7 @@ Difference Between git stash pop and git stash apply
 
 
 
-###Task 5: Rebasing - Keeping a Clean Commit History
+###Task 4: Cherry-Picking - Selectively Apply Commits
 
 Using Cherry-Picking for Bug Fixes
 What is Cherry-Picking?
