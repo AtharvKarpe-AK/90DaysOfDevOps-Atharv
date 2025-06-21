@@ -280,3 +280,119 @@ For long-lived feature branches or release branches, consider using merge instea
 Always Verify After Rebase
 
 Run your tests and verify your project still works correctly after rebasing.
+
+
+
+###Task 6: Branching Strategies Used in Companies
+
+🚀 Git Workflows in DevOps
+Effective branching strategies are essential for managing code collaboration, ensuring stability, and enabling continuous delivery in DevOps environments. Below are three widely used Git workflows:
+
+🔧 1. Git Flow
+Overview:
+Git Flow introduces a structured branching model ideal for applications with planned releases and long-term maintenance. It defines specific branch types for different purposes.
+
+🔁 Branch Types:
+main (production-ready)
+
+develop (integration branch)
+
+feature/* (new features)
+
+release/* (preparation for release)
+
+hotfix/* (emergency fixes to main)
+
+➕ Pros:
+Clear structure and role of each branch
+
+Ideal for large teams and scheduled releases
+
+Separates development and production workflows
+
+➖ Cons:
+Heavy process; not ideal for fast-paced DevOps
+
+Delays integration; not CI/CD friendly
+
+Frequent merges and potential for conflicts
+
+✅ Use when:
+You have planned release cycles and need clear control over production vs development.
+
+🔄 2. GitHub Flow
+Overview:
+A lightweight workflow optimized for Continuous Deployment. There’s only one long-lived branch: main.
+
+🧪 Workflow:
+Branch off main for a new feature
+
+Make changes and open a pull request
+
+Review and merge to main after testing
+
+➕ Pros:
+Simple, fast, and CI/CD ready
+
+Ideal for cloud-native and SaaS teams
+
+Promotes rapid iteration and continuous delivery
+
+➖ Cons:
+Less structure; not suitable for complex release requirements
+
+Requires robust automated testing and CI pipelines
+
+✅ Use when:
+You deploy frequently and favor agility over structure.
+
+🌳 3. Trunk-Based Development (TBD)
+Overview:
+In TBD, developers commit directly (or through short-lived branches) to a shared branch called main or trunk. The goal is rapid integration and frequent commits.
+
+🔄 Workflow:
+Feature branches last a few hours to a day
+
+Continuous Integration runs on each commit
+
+Changes are integrated early and often
+
+➕ Pros:
+Enables high-velocity delivery
+
+Reduces merge conflicts
+
+Ideal for CI/CD, microservices, and DevOps teams
+
+➖ Cons:
+Requires high test coverage and disciplined development
+
+Needs strong CI tooling and fast pipelines
+
+Risky without gated merges or feature flags
+
+✅ Use when:
+You practice CI/CD and want maximum development speed with automation.
+
+
+🏆 Which Strategy is Best for DevOps and CI/CD?
+👉 Recommended: Trunk-Based Development
+
+Why?
+
+Encourages frequent integration and fast feedback
+
+Works perfectly with automated testing and CI pipelines
+
+Reduces long-lived branches and conflicts
+
+Powers elite DevOps teams (used by Google, Facebook, etc.)
+
+✅ Best Practices
+Use feature flags to safely integrate incomplete work
+
+Keep feature branches short-lived (ideally under a day)
+
+Automate testing and deployments using CI/CD pipelines
+
+Regularly review and clean up stale branches
