@@ -95,3 +95,49 @@ You want to undo a commit without altering history.
 You're working in a team environment and need a safe way to fix mistakes.
 
 You want to preserve an audit trail of every action.
+
+
+
+###Task 3: Stashing - Save Work Without Committing
+
+When to Use `git stash`
+
+`git stash` is used when you need to **temporarily set aside** your local changes (both staged and unstaged) so you can:
+
+- Switch to a different branch to work on something urgent
+- Pull the latest changes from a remote branch without committing partial work
+- Perform tests or fixes without losing your ongoing work
+- Experiment with something and return to your previous state later
+
+It helps you keep your working directory clean **without committing incomplete or experimental changes**.
+
+## Commands:
+
+```bash
+# Save uncommitted changes
+git stash
+
+# List all stashed changes
+git stash list
+
+# Reapply the most recent stash (and remove it from stash list)
+git stash pop
+
+# Reapply the most recent stash (but keep it in the stash list)
+git stash apply
+
+# Drop a specific stash entry
+git stash drop stash@{0}
+
+# Clear all stash entries
+git stash clear
+
+```
+
+Difference Between git stash pop and git stash apply
+
+| Command           | Behavior                                                                                |
+| ----------------- | --------------------------------------------------------------------------------------- |
+| `git stash apply` | Reapplies the changes from the latest (or specified) stash but **keeps it in the list** |
+| `git stash pop`   | Reapplies the changes **and removes** the stash entry from the stash list               |
+
