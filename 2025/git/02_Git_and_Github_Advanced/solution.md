@@ -198,3 +198,85 @@ Avoid cherry-picking large, dependent commits.
 Consider alternatives like git merge -s ours or patch-based workflows if you need more control.
 
 
+###
+
+
+🔀 Difference Between Merge and Rebase
+Both git merge and git rebase are used to integrate changes from one branch into another, but they work differently and serve different purposes.
+
+🔁 Git Merge
+git merge combines two branches by creating a new merge commit that ties together the histories of both branches.
+
+Example:
+
+git checkout main
+git merge feature
+
+
+➕ Pros:
+Preserves the exact history and context of both branches
+
+Ideal for public/shared branches
+
+➖ Cons:
+Can clutter history with extra merge commits
+
+Can be harder to trace a linear path of changes
+
+
+🔄 Git Rebase
+git rebase moves or “replays” your branch's commits on top of another branch, rewriting the commit history to be linear.
+
+Example:
+git checkout feature
+git rebase main
+
+
+This makes it look like your work on feature was based on the latest main — as if you started from there.
+
+➕ Pros:
+Cleaner, linear commit history
+
+Easier to follow chronological development
+
+Useful before merging to avoid unnecessary merge commits
+
+➖ Cons:
+Rewrites history, which can cause problems if the branch is shared
+
+Must be used with caution on public branches
+
+✅ Best Practices for Rebasing
+Only Rebase Local/Private Branches
+
+Never rebase branches that others are working on unless you coordinate carefully.
+
+Rewriting public history can cause conflicts and confusion.
+
+Use git pull --rebase to Stay Updated
+
+Keeps your local branch up to date without creating unnecessary merge commits.
+
+Example:
+git pull --rebase origin main
+
+
+Use Interactive Rebase for Cleanups
+
+Use git rebase -i to edit, squash, or reorder commits before merging.
+
+Example:
+git rebase -i HEAD~5
+
+
+Resolve Conflicts Carefully
+
+During rebase, resolve conflicts at each step and use git rebase --continue to proceed.
+
+Avoid Rebasing Long-Lived or Shared Branches
+
+For long-lived feature branches or release branches, consider using merge instead.
+
+Always Verify After Rebase
+
+Run your tests and verify your project still works correctly after rebasing.
