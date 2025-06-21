@@ -1,4 +1,4 @@
-# Solution: Creating and Merging a Feature Branch via Pull Request
+# Solution: Week 4: Git & GitHub Advanced Challenge
 
 ## 1. Working on a New Feature and Creating a PR
 
@@ -61,3 +61,37 @@ Why: Briefly state the reasoning or problem it solves.
 How: Mention any specific implementation details, dependencies, or risks.
 
 Extras: Link to related issues, screenshots (if UI), or docs.
+
+
+###Task 2: Undoing Changes – Reset & Revert
+
+Differences Between git reset and git revert
+
+| Feature            | `git reset`                       | `git revert`                                  |
+| ------------------ | --------------------------------- | --------------------------------------------- |
+| **Action**         | Moves the branch pointer backward | Creates a new commit that undoes previous one |
+| **Data Loss Risk** | Yes (especially with `--hard`)    | No                                            |
+| **History**        | Rewrites history                  | Preserves history                             |
+| **Usage Scope**    | Local work                        | Safe for shared/public branches               |
+| **Undo Commits?**  | Yes                               | Yes                                           |
+| **Undo Changes?**  | Yes (with `--mixed` or `--hard`)  | No (just reverses commit logic)               |
+
+
+When to Use Each Method
+✅ Use git reset when:
+You’re working locally and want to clean up your commit history.
+
+You want to remove one or more commits before pushing.
+
+You accidentally committed files and want to undo before sharing.
+
+You’re okay with possibly losing uncommitted changes (especially with --hard).
+
+✅ Use git revert when:
+You already pushed the commit to a shared/public branch.
+
+You want to undo a commit without altering history.
+
+You're working in a team environment and need a safe way to fix mistakes.
+
+You want to preserve an audit trail of every action.
